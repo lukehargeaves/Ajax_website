@@ -1,0 +1,117 @@
+/*This is the styling document for all of the webpages.*/
+/*Styles the body of the page.*/
+body {
+    background-color: dimgrey;
+}
+
+/*Styles the paragraphs for the web page.*/
+p {
+    text-align: left;
+    font-weight: bold;
+    padding-left: 20px;
+    font-size: 20px;
+}
+
+/*Styles the visited links for the web pages.*/
+:visited {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+
+}
+
+/*Styles the un-visited links for the web pages.*/
+link {
+    color: blue;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+/*record to edit select*/
+/*Styles the table*/
+table {
+    border-collapse: collapse;
+    width: auto;
+    display: inline-flex;
+}
+
+/*Styles the table data and the table header.*/
+td, th {
+    text-align: left;
+    padding: 10px;
+}
+
+/*Styles the table and all of the elements in the table as one.*/
+table, th, td {
+    border: 1px solid black;
+    text-align: left;
+}
+
+/*section ending*/
+
+/*index.html*/
+
+/*Styles the header for the homepage.*/
+h1 {
+    font-size: 40px;
+    color: white;
+    font-family: "sans-serif";
+    padding-left: 40px;
+}
+
+/*Styles the nav bar for the homepage.*/
+nav {
+
+    text-align: center;
+    width: 100%;
+    left: 10%;
+    top: 0px;
+    padding: 20px;
+
+}
+
+/*Allows the nav bar to flex */
+topnav {
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    display: flex;
+    text-align: right;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 15px;
+    background: grey;
+
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: dimgrey;
+    color: black;
+}
+
+/* unvisited link */
+.topnav a:link {
+    color: white;
+}
+
+/* visited link */
+.topnav a:visited {
+    color: blue;
+}
+
+/*Sets the offers text in the paragraph.*/
+.offers p {
+    text-align: left;
+    padding-left: 20px;
+    padding-top: 10px;
+
+}
+
+
+

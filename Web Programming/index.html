@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<header>
+<h1> Welcome to the Home Page</h1>
+</header>
+<nav>
+    <div class="topnav">
+        <a href="index.html">Home</a>
+        <a href="recordToEditSelect.php">Record to edit</a>
+        <a href="recordUpdate.php">Record Update</a>
+        <a href="recordReader.php">Record Reader</a>
+        <a href="orderRecordsForm.php">Order Records</a>
+        <a href="credits.html">Credits</a>
+    </div>
+</nav>
+<main>
+    <div class="offers">
+    <aside id = "offers">
+        <p>Offers</p>
+    </aside>
+
+
+    <aside id="XMLoffers">
+        <p>XML offers</p>
+    </aside>
+    </div>
+
+</main>
+<script>
+
+        const offers = document.getElementById('offers');
+        const XMLOffers = document.getElementById('XMLoffers');
+        const URL = 'getOffers(1).php?useXML';
+        const URL2 = 'getOffers(1).php';
+        getRequest(URL2,updateTarget2);
+        getRequest(URL, updateTarget);
+        window.setInterval(myTimer, 5000);
+        function myTimer() {
+            getRequest(URL2, updateTarget2);
+        }
+
+
+       /* window.setInterval(myTimer2, 5000);
+        function myTimer2(){
+            getRequest(URL, updateTarget);
+        }
+*/
+
+        function getRequest(URL, callback) {
+            'use strict';
+            const httpRequest = new XMLHttpRequest();
+            httpRequest.onreadystatechange = function () {
+                let completed = 4, successful = 200;
+                if (httpRequest.readyState == completed) {
+                    if (httpRequest.status == successful) {
+                        callback(httpRequest.responseText);
+                    }
+                    else {
+                        alert('There was a problem with the request.');
+                    }
+                }
+            };
+
+            httpRequest.open('get', URL, true);
+            httpRequest.send(null);
+        }
+
+        function updateTarget(text) {
+            'use strict';
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(text, "text/xml");
+            const retrun = xmlDoc.getElementsByTagName("root")[0].innerHTML;
+            XMLoffers.innerHTML = "<p>"+ retrun +"</p>";
+
+        }
+
+        function updateTarget2(text){
+            'use strict';
+            offers.innerHTML = text;
+        }
+
+
+</script>
+
+</body>
+</html>
+
